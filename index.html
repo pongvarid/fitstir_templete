@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Fitstir</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+
+	<!-- Font Awesome if you need it
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  -->
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
+	<!--Replace with your tailwind.css once created-->
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Kanit:300" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+	<!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+	<style>
+		.orange-bg {
+			background-color: #ffffff;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0'%3E%3Cstop offset='0' stop-color='%230FF'/%3E%3Cstop offset='1' stop-color='%23CF6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F00'/%3E%3Cstop offset='1' stop-color='%23FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='2'%3E%3Cpath transform='translate(0 0)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='4' transform='rotate(0 800 450)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(0 0)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='4'%3E%3Cpath transform='translate(0 0)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='8' transform='rotate(0 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='rotate(0 1400 132)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+			background-attachment: fixed;
+			background-size: cover;
+		}
+
+		.gradient {
+			background-color: #ff0000;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3CradialGradient id='a' cx='500' cy='500' r='60%25' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff0000'/%3E%3Cstop offset='1' stop-color='%23900'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='500' cy='500' r='70%25' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF0' stop-opacity='1'/%3E%3Cstop offset='1' stop-color='%23FF0' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1000' height='1000'/%3E%3Cg fill='none' stroke='%23F40' stroke-width='2' stroke-miterlimit='10' stroke-opacity='.5'%3E%3Ccircle cx='500' cy='500' r='725'/%3E%3Ccircle cx='500' cy='500' r='700'/%3E%3Ccircle cx='500' cy='500' r='675'/%3E%3Ccircle cx='500' cy='500' r='650'/%3E%3Ccircle cx='500' cy='500' r='625'/%3E%3Ccircle cx='500' cy='500' r='600'/%3E%3Ccircle cx='500' cy='500' r='575'/%3E%3Ccircle cx='500' cy='500' r='550'/%3E%3Ccircle cx='500' cy='500' r='525'/%3E%3Ccircle cx='500' cy='500' r='500'/%3E%3Ccircle cx='500' cy='500' r='475'/%3E%3Ccircle cx='500' cy='500' r='450'/%3E%3Ccircle cx='500' cy='500' r='425'/%3E%3Ccircle cx='500' cy='500' r='400'/%3E%3Ccircle cx='500' cy='500' r='375'/%3E%3Ccircle cx='500' cy='500' r='350'/%3E%3Ccircle cx='500' cy='500' r='325'/%3E%3Ccircle cx='500' cy='500' r='300'/%3E%3Ccircle cx='500' cy='500' r='275'/%3E%3Ccircle cx='500' cy='500' r='250'/%3E%3Ccircle cx='500' cy='500' r='225'/%3E%3Ccircle cx='500' cy='500' r='200'/%3E%3Ccircle cx='500' cy='500' r='175'/%3E%3Ccircle cx='500' cy='500' r='150'/%3E%3Ccircle cx='500' cy='500' r='125'/%3E%3Ccircle cx='500' cy='500' r='100'/%3E%3Ccircle cx='500' cy='500' r='75'/%3E%3Ccircle cx='500' cy='500' r='50'/%3E%3Ccircle cx='500' cy='500' r='25'/%3E%3C/g%3E%3Crect fill-opacity='.5' fill='url(%23b)' width='1000' height='1000'/%3E %3C/svg%3E");
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	</style>
+
+	<style>
+		.brand-font {
+			font-family: 'Lobster', cursive !important;
+
+		}
+
+		.f {
+			font-family: 'Kanit', sans-serif !important;
+		}
+	</style>
+
+</head>
+
+<body onload="loadAnimate()" class="leading-normal tracking-normal text-white gradient"
+	style="font-family: 'Source Sans Pro', sans-serif;">
+
+	<!--Nav-->
+	<nav id="header" class="fixed w-full z-30 top-0 text-white">
+
+		<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+
+			<div class="pl-4 flex items-center">
+				<a class="toggleColour text-white no-underline hover:no-underline text-2xl lg:text-3xl brand-font"
+					href="#">
+					<!--Icon from: http://www.potlabicons.com/ -->
+					<img class="h-10 fill-current inline" src="./images/logo.jpg" alt="">
+					Fitstir
+				</a>
+			</div>
+
+			<div class="block lg:hidden pr-4">
+				<button id="nav-toggle" class="flex items-center p-1 text-white hover:text-gray-600">
+					<svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+						<title>Menu</title>
+						<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+					</svg>
+				</button>
+			</div>
+
+			<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white lg:bg-transparent  text-black p-4 lg:p-0 z-20 "
+				id="nav-content">
+				<ul class="list-reset lg:flex justify-end flex-1 items-center ">
+					<li class="mr-3" >
+						<a class="inline-block py-2 px-4   font-bold no-underline lg:text-white sm:text-blcak"     href="#">Home</a>
+					</li>
+					<li class="mr-3"  >
+						<a class="inline-block   no-underline hover:text-gray-800 hover:text-underline py-2 px-4 lg:text-white sm:text-blcak" 
+							href="#" >Videos</a>
+					</li>
+					<li class="mr-3"   >
+						<a class="inline-block  no-underline hover:text-gray-800 hover:text-underline py-2 px-4 lg:text-white sm:text-blcak"
+							href="#"   >Contact</a>
+					</li>
+					<li class="mr-3"   >
+						<a class="inline-block  no-underline hover:text-gray-800 hover:text-underline py-2 px-4 lg:text-white sm:text-blcak"
+							href="#"   >Login</a>
+					</li>
+				</ul>
+	 
+			</div>
+		</div>
+
+		<hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+	</nav>
+
+
+
+
+	<!--Hero-->
+	<div class="pt-20">
+
+		<div class="container px-2 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+			<!--Left Col-->
+			<div data-aos="fade-right" data-aos-duration="2000"
+				class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+
+				<h4 class="uppercase text-2xl tracking-loose w-full"><b>Exercise</b> your mind and body</h4>
+				<h1 class="my-4 text-5xl font-bold leading-normal w-full ">FITSTIR</h1>
+				<p class="leading-normal text-xl mb-8 f"><b>เราออกแบบ</b> และ ผลิต เครื่องออกกำลังกายที่
+					<b>รวมเอาข้อดี</b> และ ประโยชน์ ของเครื่องออกกำลังกายมาตราฐานต่างๆ<br> <b>มารวมไว้ในเครื่องเดียว</b>
+				</p>
+ 
+				<button
+					class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg uppercase">Join
+					Now !</button>
+
+			</div>
+			<!--Right Col-->
+			<div data-aos="fade-left" data-aos-duration="2000" class="w-full md:w-3/5 py-6 text-center">
+				<img class="w-full md:w-5/5 z-50" src="./images/hero.png">
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div class="relative -mt-12 lg:-mt-24">
+		<svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
+			xmlns:xlink="http://www.w3.org/1999/xlink">
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+					<path
+						d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+						opacity="0.100000001"></path>
+					<path
+						d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+						opacity="0.100000001"></path>
+					<path
+						d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+						id="Path-4" opacity="0.200000003"></path>
+				</g>
+				<g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+					<path
+						d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z">
+					</path>
+				</g>
+			</g>
+		</svg>
+	</div>
+
+	<section class="bg-white   py-8">
+		<div class="container max-w-5xl mx-auto m-8">
+			<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800 uppercase" data-aos="fade-up-left"
+				data-aos-duration="3000">How To Play</h1>
+			<div class="w-full mb-4" data-aos="fade-up-right" data-aos-duration="3000">
+				<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+			</div>
+
+			<div class="flex flex-wrap" data-aos="fade-up-right" data-aos-duration="3000">
+				<div class="w-5/6 sm:w-1/2 p-6">
+					<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3 uppercase">Multifunction Machine</h3>
+					<p class="text-gray-600 text-xl mb-8 f">
+						เครื่อง Multifunction ที่ครบ 100% ทุกองค์ประกอบการเล่น
+						- Smith Machine Station <br>
+						- Cablecross Station<br>
+						- Chin Up Assistance <br>
+						- Dip Up Assistance<br>
+						- Cable with Seat foe Back <br>
+						- Legpress Station<br>
+						- Captain Chair <br>
+						- Rower Machine  <br>
+					</p>
+					<button
+						class="mx-auto lg:mx-0 hover:underline bg-orange-700 text-gray-100 font-bold rounded-full my-6 py-4 px-8 shadow-lg uppercase">Watch
+						Now !</button>
+				</div>
+				<div class="w-full sm:w-1/2 p-6" data-aos="fade-up-left" data-aos-duration="3000">
+					<img src="./images/hero2.png" class="w-full sm:h-auto mx-auto" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="relative">
+		<img class="absolute h-full w-full object-cover" src="./images/bg100.png" alt="" />
+		<div class="container    mx-auto ">
+			<br>
+			<h1 class="w-full mt-10 my-2 text-5xl font-bold leading-tight text-center text-white f"
+				data-aos="fade-up-left" data-aos-duration="3000">ประหยัดพื้นที่ คุณภาพสูง</h1>
+			<div class="w-full mb-4" data-aos="fade-up-right" data-aos-duration="3000">
+				<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+			</div><br>
+
+			<div class="flex flex-wrap" data-aos="fade-up-right" data-aos-duration="2000">
+				<div class="w-5/6 sm:w-1/3 p-6 f">
+					<h2 class="text-white text-2xl opacity-75 font-bold">โครงสร้างเหล็ก </h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75">กว้างพิเศษ 2.70 เมตร น้ำหนักรวม 350 กก.</p> <br>
+
+					<h2 class="text-white opacity-75 text-2xl font-bold">ระบบรางเลื่อนลูกปืน </h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75">ใส่แผ่นน้ำหนักด้านใน ถอดเข้า-ออก ง่าย </p><br>
+
+					<h2 class="text-white opacity-75 text-2xl font-bold">ม้านั่ง</h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75"> พับเก็บได้ปรับได้หลายองศา ระบบพักบาร์ </p><br>
+
+					<h2 class="text-white opacity-75 text-2xl font-bold">สายสสิงใหญ่พิเศษ</h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75"> ขนาด 5มม. รับน้ำหนักได้มาก </p><br>
+				</div>
+				<div class="w-full sm:w-1/3 p-4" data-aos="flip-up" data-aos-duration="3000">
+					<img src="./images/mainw.png" class="w-full sm:h-auto mx-auto" alt="">
+				</div>
+				<div class="w-5/6 sm:w-1/3 p-6 f" data-aos="fade-up-left" data-aos-duration="2000">
+					<h2 class="text-white opacity-75 text-2xl font-bold">Fly Grip แบบพิเศษ </h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75">ลดแรงกดที่ข้อมือ ทำให้ออกแรงได้มากขึ้น Safe ข้อมือ</p> <br>
+
+					<h2 class="text-white opacity-75 text-2xl font-bold">Pull down </h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75">สลิงคู่ ใส่น้ำหนักได้มากกว่า</p><br>
+
+					<h2 class="text-white opacity-75 text-2xl font-bold">มีราวจับ </h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75">ถนัดมือ Focus กล้ามเนื้อได้ดี </p><br>
+
+					<h2 class="text-white opacity-75 text-2xl font-bold">ระบบช่วยยกตัว </h2>
+					<div class="h-1 gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+					<p class="text-white opacity-75"> ลดน้ำหนักตัวผู้เล่น ทำให้ได้จำนวนยกมากชึ้น
+						เพิ่มจำนวนครั้งในการเล่น </p><br>
+
+				</div>
+			</div>
+		</div><br><br>
+	</section>
+
+
+
+
+	<section class="bg-gray-100 py-8">
+
+
+
+		<div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
+
+			<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800" data-aos="fade-up-right" data-aos-duration="2000" >How To EXERCISE</h1>
+			<div class="w-full mb-4">
+				<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t" data-aos="fade-up-right" data-aos-duration="2000" ></div>
+			</div>
+
+
+
+			<div class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4" data-aos="fade-up-right" data-aos-duration="2000" >  
+				<div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4 p-4">
+					<iframe  style="width:100%;" src="https://www.youtube.com/embed/4Pi5ZsK3IgM" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+				<div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4 p-4">
+					<iframe style="width:100%;" src="https://www.youtube.com/embed/5rmRsQkiEFE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4 p-4">
+					<iframe style="width:100%;"  src="https://www.youtube.com/embed/4xTdcQC71DQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div> 
+			</div>
+			<div class="flex flex-col sm:flex-row justify-center pt-4 my-12 sm:my-4" data-aos="fade-up-right" data-aos-duration="2000" >  
+				<div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4 p-4">
+					<iframe style="width:100%;"  src="https://www.youtube.com/embed/ikeuOeAlICI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4 p-4">
+					<iframe style="width:100%;"  src="https://www.youtube.com/embed/owCuv15WP2I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4 p-4">
+					<iframe style="width:100%;"  src="https://www.youtube.com/embed/8FfPnMx1HxM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div> 
+			</div>
+
+		</div>
+
+
+	</section>
+
+
+
+
+
+
+
+	<!--Footer-->
+	<footer class="relative">
+		<img class="absolute h-full w-full object-cover" src="./images/footer.png" alt="" />
+		<div class="container relative  mx-auto">
+			<div class="flex  ">
+				<div class="w-5/6 sm:w-1/4 p-6 f">
+					<a class="toggleColour text-white no-underline hover:no-underline text-3xl lg:text-3xl brand-font"
+						href="#">
+						<!--Icon from: http://www.potlabicons.com/ -->
+						<img class="h-10 fill-current inline" src="./images/logo.jpg" alt="">
+						Fitstir
+					</a>
+				</div>
+				<div class=" sm:w-1/2"><br>
+					<h1 class="text-white font-bold f text-xl">Contact</h1>
+					<div class="h-1 gradient w-64 opacity-25 rounded-t"></div>
+					<a class="text-white f" href="https://www.facebook.com/pg/Fitstirfitness/about/?ref=page_internal">
+						<b>Facebook : </b> Fitstir</a>
+					<br><a class="text-white f" href=""><b>โทร : </b> 0930453891</a>
+					<br><a class="text-white f" href=""><b>Email : </b>pattananandhana@gmail.com</a>
+				</div>
+			</div>
+		</div><br><br>
+
+	</footer>
+
+
+
+	<script>
+			var scrollpos = window.scrollY;
+		var header = document.getElementById("header");
+		var navcontent = document.getElementById("nav-content");
+		var navaction = document.getElementById("navAction");
+		var brandname = document.getElementById("brandname");
+		var toToggle = document.querySelectorAll(".toggleColour");
+		var navLink = document.getElementById("nav-link");
+		function loadAnimate() {
+			AOS.init();
+			 
+		}
+	
+		document.addEventListener('scroll', function () {
+
+			/*Apply classes for slide in bar*/
+			scrollpos = window.scrollY;
+
+			if (scrollpos > 10) {
+				header.classList.add("bg-white");
+				navaction.classList.remove("bg-white");
+				navaction.classList.add("gradient");
+				navaction.classList.remove("text-gray-800");
+				navaction.classList.add("text-white");
+				//Use to switch toggleColour colours
+				for (var i = 0; i < toToggle.length; i++) {
+					toToggle[i].classList.add("text-gray-800");
+					toToggle[i].classList.remove("text-white");
+				}
+				header.classList.add("shadow");
+				navcontent.classList.remove("bg-gray-100");
+				navcontent.classList.add("bg-white");
+			}
+			else {
+				header.classList.remove("bg-white");
+				navaction.classList.remove("gradient");
+				navaction.classList.add("bg-white");
+				navaction.classList.remove("text-white");
+				navaction.classList.add("text-gray-800");
+				//Use to switch toggleColour colours
+				for (var i = 0; i < toToggle.length; i++) {
+					toToggle[i].classList.add("text-white");
+					toToggle[i].classList.remove("text-gray-800");
+				}
+
+				header.classList.remove("shadow");
+				navcontent.classList.remove("bg-white");
+				navcontent.classList.add("bg-gray-100");
+
+			}
+
+		});
+
+
+	</script>
+
+	<script>
+
+
+		/*Toggle dropdown list*/
+		/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+		var navMenuDiv = document.getElementById("nav-content");
+		var navMenu = document.getElementById("nav-toggle");
+
+		document.onclick = check;
+		function check(e) {
+			var target = (e && e.target) || (event && event.srcElement);
+
+			//Nav Menu
+			if (!checkParent(target, navMenuDiv)) {
+				
+				// click NOT on the menu
+				if (checkParent(target, navMenu)) {
+				 
+			 
+					
+					// click on the link
+					if (navMenuDiv.classList.contains("hidden")) {
+						navMenuDiv.classList.remove("hidden");
+					} else { navMenuDiv.classList.add("hidden"); }
+				} else {
+		 
+					// click both outside link and outside menu, hide menu
+					navMenuDiv.classList.add("hidden");
+				}
+			} 
+
+		}
+		function checkParent(t, elm) {
+			while (t.parentNode) {
+				if (t == elm) { return true; }
+				t = t.parentNode;
+			}
+			return false;
+		}
+	</script>
+
+
+</body>
+
+</html>
